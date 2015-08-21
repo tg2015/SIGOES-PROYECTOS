@@ -7,7 +7,7 @@
  * @subpackage Main Plugin Controller
  * @since 0.1
  */
-class fooController
+class proyectosController
 {
     /**
      * the class constructor
@@ -38,28 +38,40 @@ public function init()
 {
     //is this a post display page? If so, then filter the content\
     if( is_single() )
-        add_filter( 'the_content', array(&$this, 'render_foo_single_post' ) );
+        add_filter( 'the_content', array(&$this, 'render_proyectos_vista' ) );
+
+
+//Esto lo he agregado desde el archivo admin de gabo
+
+
+//fin de archivo admin
+
+
+
+
 }
-public function render_foo_single_post( $content )
+
+
+public function render_proyectos_vista( $content )
 {
     //require_once our model
-    require_once( 'models/foo-model.php' );
+    require_once( 'models/proyectos-modelo.php' );
     //instantiate the model
-    $fooModel = new fooModel;
+    $proyectoModelo = new proyectosModelo;
  
     //get the message
-    $message = $fooModel->get_message();
+    $message = $proyectoModelo->get_message();
  
     //require_once our view
-    require_once( 'views/foo-single-post-html.php' );
+    require_once( 'views/proyectos-vista.php' );
  
     //render the view
-    $content = fooSinglePostHtmlView::render( $message ) . $content ;
+    $content = proyectosVista::render( $message ) . $content ;
  
     //return the result
     return $content;
 }
 }
- $foo = new fooController;
+ $foo = new proyectosController;
 
 ?>
