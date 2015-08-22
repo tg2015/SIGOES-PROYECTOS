@@ -7,5 +7,9 @@ Author:  Equipo de desarrollo SIGOES
 Author URI: http://modulos.egob.sv
 
 */
-require_once( 'includes/proyectos-controller.php' );
+
+if(!defined('PLUGIN_URL')){ 
+ define('PLUGIN_URL',WP_CONTENT_URL.'/plugins/');
+}
+require_once('includes/controller/proyectos-controller.php');
 ?>
